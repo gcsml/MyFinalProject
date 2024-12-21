@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
             throw new NotImplementedException();
         }
 
-        public Category Get()
+        public Category Get(Expression<Func<Category, bool>> filter)
         {
             throw new NotImplementedException();
         }
@@ -33,5 +33,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             throw new NotImplementedException();
         }
+
+       
     }
 }

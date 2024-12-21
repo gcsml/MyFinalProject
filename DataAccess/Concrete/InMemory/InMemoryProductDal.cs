@@ -60,12 +60,22 @@ namespace DataAccess.Concrete.InMemory
             throw new NotImplementedException();
         }
 
+        public Product Get(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetAll()
         {
             return _products;
         }
 
         public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
             throw new NotImplementedException();
         }

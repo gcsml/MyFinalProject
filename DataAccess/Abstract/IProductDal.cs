@@ -6,7 +6,7 @@ using System.Text;
 namespace DataAccess.Abstract
 {
     // Dal-dao =data access layer
-    public interface IProductDal : IEntityRepository<Category>
+    public interface IProductDal : IEntityRepository<Product>
 
     { 
     }

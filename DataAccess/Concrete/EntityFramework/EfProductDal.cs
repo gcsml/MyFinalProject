@@ -1,7 +1,9 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
@@ -9,29 +11,57 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfProductDal : IProductDal
     {
-        public void Add(Category entity)
+        public void Add(Product entity)
         {
-            throw new NotImplementedException();
+            //using içinde yazılan nesneler using bitice anında bellekten silinir
+            using (NorthwindContext context = new NorthwindContext())
+
+            {
+                var addedEntity = context.Entry(entity); //referansı yakala 
+                addedEntity.State = EntityState.Added;   // o aslında eklenecek bir nesne
+                context.SaveChanges();                   // ve şimdi ekle
+            }
         }
 
-        public void Delete(Category entity)
+        public void Delete(Product entity)
         {
-            throw new NotImplementedException();
+            using (NorthwindContext context = new NorthwindContext())
+
+            {
+                var deletedEntity = context.Entry(entity); 
+                deletedEntity.State = EntityState.Deleted;   
+                context.SaveChanges();
+            }
         }
 
-        public Category Get(Expression<Func<Category, bool>> filter)
+        public Product Get(Expression<Func<Product, bool>> filter) 
         {
-            throw new NotImplementedException();
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                return context.Set<Product>().SingleOrDefault(filter);
+            }
         }
 
-        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            using (NorthwindContext context=new NorthwindContext ())
+            {
+                return filter == null                                   // filtre null mı
+                    ? context.Set<Product>().ToList()                   //evet ise bu çalışır   
+                    : context.Set<Product>().Where(filter).ToList();    //değilse filtreleyip ver
+                   
+            }
         }
 
-        public void Update(Category entity)
+        public void Update(Product entity)
         {
-            throw new NotImplementedException();
+            using (NorthwindContext context = new NorthwindContext())
+
+            {
+                var updatedEntity = context.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
+                context.SaveChanges();
+            }
         }
 
        

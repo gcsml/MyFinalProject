@@ -9,13 +9,13 @@ namespace Business.Abstract
 {
     public interface IProductService
     {
-        IDateResult<List<Product>> GetAll();
-        IDateResult<List<Product>> GetAllByCategoryId(int id);
+        IDataResult<List<Product>> GetAll();
+        IDataResult<List<Product>> GetAllByCategoryId(int id);
 
-        IDateResult<List<Product>> GetAllByUnitPrice(decimal min, decimal max);
+        IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max);
 
-        IDateResult<List<ProductDetailDto>> GetProdductDetails();
-        IDateResult<Product> GetById(int productId);
+        IDataResult<List<ProductDetailDto>> GetProdductDetails();
+        IDataResult<Product> GetById(int productId);
 
         IResult Add(Product product);
     }

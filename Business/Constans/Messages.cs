@@ -11,7 +11,7 @@ namespace Business.Constans
     {
         public static string ProductAdded = "Ürün eklendi";
         public static string ProductNameInvalidid = " Ürün ismi geçersiz";
-        internal static string MaintenanceTime = "Sisem bakımda";
-        internal static string ProductListed = "Ürünler listelendi";
+        public static string MaintenanceTime = "Sisem bakımda";
+        public static string ProductListed = "Ürünler listelendi";
     }
 }

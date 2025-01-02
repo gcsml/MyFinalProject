@@ -9,9 +9,9 @@ namespace Core.Utilities.Results
     public class Result : IResult
     {
 
-        public Result(bool success, string massage) : this(success)
+        public Result(bool success, string message) : this(success)
         {
-            massage = massage;
+            Message = message;
 
         }
 

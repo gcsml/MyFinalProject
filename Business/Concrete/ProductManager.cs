@@ -37,10 +37,10 @@ namespace Business.Concrete
             //İş kodları
             //yetkisi var mı vs if ile kontrol edebilirim
 
-           /* if (DateTime.Now.Hour == 22) ;
+            if (DateTime.Now.Hour == 6) 
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
-            } */
+            } 
 
           return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductListed);  
         }
